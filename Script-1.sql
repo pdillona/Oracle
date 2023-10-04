@@ -1,0 +1,37 @@
+SELECT * FROM DICT;
+
+SELECT TABLE_name FROM user_tables;
+
+SELECT  owner, TABLE_name FROM all_tables;
+
+-- 실습 3-2, 인덱스 조회/생성/삭제
+-- 현재 사용자 인덱스 조회
+
+SELECT * FROM user_indexes;
+
+GRANT CREATE VIEW TO scott;
+
+
+-- 실습 4-1 
+ALTER SESSION SET "_ORACLE_SCRIPT" = TRUE;
+CREATE  USER wpdjvks IDENTIFIED BY "1234";
+
+
+-- 실습 4-2 사용자 조회
+SELECT * FROM ALL_USERS;
+SELECT * FROM ALL_USERS WHERE USERNAME  = 'WPDJVKS';
+
+-- 실습 4-3 사용자 변경
+ALTER USER WPDJVKS IDENTIFIED BY "12345";
+ALTER USER WPDJVKS IDENTIFIED BY "1234";
+DROP  USER WPDJVKS;
+DROP  USER WPDJVKS CASCADE; -- CASCADE를 붙이면 해당 계정이 가진 테이블 까지 모조리 삭제해 준다.
+
+
+-- 실습 4-4 ROLE 부여 워크북 16페이지
+GRANT CONNECT, RESOURCE TO WPDJVKS;
+GRANT UNLIMITED TABLESPACE TO WPDJVKS;
+
+
+
+
